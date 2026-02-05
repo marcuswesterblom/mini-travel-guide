@@ -1,17 +1,12 @@
 import type { WeatherData } from "./weather/Weatherdata";
 import type { CountryData } from "./countries/CountryData";
 import { activityRecommendation } from "./helpers/helpers";
-import heartIconSvg from "../public/assets/icons/heart-svgrepo-com.svg";
-import locationIconSvg from "../public/assets/icons/location-pin-svgrepo-com.svg";
-import populationIconSvg from "../public/assets/icons/users-svgrepo-com.svg";
-import languageIconSvg from "../public/assets/icons/annotation-svgrepo-com.svg";
-import currencyIconSvg from "../public/assets/icons/dollar-sign-svgrepo-com.svg";
 
 export function createHtml(
     container: HTMLElement, 
     weather: WeatherData, 
     country: CountryData, 
-    imgaes: string[]
+    images: string[]
 ) {
     container.innerHTML = "";
 
@@ -106,6 +101,13 @@ export function createHtml(
     tips.id = "tips";
     currentWeatherText.id = "currentWeatherText";
 
+    // ICONS
+    heartIcon.id = "svg";
+    locationIcon.id = "svg";
+    populationIcon.id = "svg";
+    languageIcon.id = "svg";
+    currencyIcon.id = "svg";
+    
     // GALLERY
 
 // --- Apply data to HTML elements ---
@@ -134,11 +136,11 @@ export function createHtml(
 
     // ICONS
 
-    heartIcon.src = heartIconSvg;
-    locationIcon.src = locationIconSvg;
-    populationIcon.src = populationIconSvg;
-    languageIcon.src = languageIconSvg;
-    currencyIcon.src = currencyIconSvg;
+    heartIcon.src = "/assets/icons/heart-svgrepo-com.svg";
+    locationIcon.src = "/assets/icons/location-pin-svgrepo-com.svg";
+    populationIcon.src = "/assets/icons/users-svgrepo-com.svg";
+    languageIcon.src = "/assets/icons/annotation-svgrepo-com.svg";
+    currencyIcon.src = "/assets/icons/dollar-sign-svgrepo-com.svg";
 
     // WEATHER
     localTime.textContent = weather.location.localtime;
@@ -155,7 +157,7 @@ export function createHtml(
 
     const imagesContainer = document.createElement("div");
     imagesContainer.id = "imagesContainer";
-    imgaes.forEach(url => {
+    images.forEach(url => {
         const img = document.createElement("img");
         img.src = url;
         img.alt = `${weather.location.name}`;
@@ -183,8 +185,8 @@ export function createHtml(
 
     populationContainer.append(
         populationIconContainer,
-        languageText,
-        languageInfo
+        populationText,
+        populationInfo
     );
 
     languageContainer.append(
@@ -198,8 +200,6 @@ export function createHtml(
         currencyText,
         currencyInfo
     );
-
-    currencyContainer.append
 
     flagContainer.appendChild(flag);
 
@@ -233,7 +233,6 @@ export function createHtml(
 
     container.append(
         countryContainer,
-        weatherContainer,
         galleryTitle,
         imagesContainer
     );

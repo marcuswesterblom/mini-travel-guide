@@ -3,12 +3,12 @@ import { fetchCountry } from "./countries/countryServices";
 import { fetchImages } from "./gallery/unsplashServices";
 import { createHtml } from "./createHtml";
 
-const cityInput = document.getElementById("cityInput") as HTMLInputElement;
+const searchInput = document.getElementById("searchInput") as HTMLInputElement;
 const searchBtn = document.getElementById("searchBtn") as HTMLButtonElement;
 const resultDiv = document.getElementById("result") as HTMLDivElement;
 
 searchBtn.addEventListener("click", () => {
-    const city = cityInput.value.trim();
+    const city = searchInput.value.trim();
     if (city) loadTravelGuide(city);
 });
 
