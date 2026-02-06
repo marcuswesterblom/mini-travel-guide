@@ -1,4 +1,16 @@
+@use "variables" as *;
+
 #svg{
     height: 40px;
     width: 40px;
+}
+
+#flagContainer{
+    height: 70px;
+    width: 110px;
+    border-radius: $border-radius-5;
+    overflow: hidden;
+    img{
+        width: 100%;
+    }
 }
