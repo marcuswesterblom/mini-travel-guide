@@ -1,0 +1,77 @@
+import type { WeatherType } from "./getWeatherType";
+
+export type TempLevel = "freezing" | "cold" | "chilly" | "mild" | "warm" | "hot" | "veryHot";
+export type TempLevelOrDefault = TempLevel | "default";
+
+export const recommendations: Record<WeatherType, Record<TempLevelOrDefault, string>> = {
+    sun: {
+        freezing: "Go skiing or just enoy the snowy views ⛷️",
+        cold: "Sunny and cold - Do you wanna build a snow man? ⛄",
+        chilly: "Crisp sunny day - perfect for a brisk walk 🚶‍➡️",
+        mild: "Lovely sunshine  put on your sneakers and explore 👟",
+        warm: "Great day for outdoor activities ⚽",
+        hot: "Beach time!😎",
+        veryHot: "Scorching sun 🔥 - Remember to stay hydrated and apply SPF regulary",
+        default: "Sunny day - enjoy!",
+    },
+    rain: {
+        freezing: "",
+        cold: "Be aware of slippery roads today! 🧊",
+        chilly: "Chilly rain - don't forget your umbrella ☂️",
+        mild: "Rainy and mild - perfect day for a cozy café ☕",
+        warm: "Warm but rainy - put on your rubber boots and splash around in puddles 🌦️",
+        hot: "Summerrain at it's finest 🌻",
+        veryHot: "End of the drought 🔥",
+        default: "Rainy day - remember an umbrella",
+    },
+    cloud: {
+        freezing: "Maybe a museum or café visit 🖼️",
+        cold: "Maybe a museum or café visit 🖼️",
+        chilly: "Perfect day for a stroll in the city 🚶‍➡️",
+        mild: "Today's a perfect day for sightseeing, make sure you bring your camera 📸",
+        warm: "Great day for outdoor activities ⚽",
+        hot: "Maybe some light exercise or a wak",
+        veryHot: "Stay hydrated and relax",
+        default: "Cloudy day - enjoy the shade",
+    },
+    snow: {
+        freezing: "Freezing snow - a perfect day for making snow angels and building a snowman ⛄",
+        cold: "A winter walk or indoor reading is perfect today!",
+        chilly: "",
+        mild: "",
+        warm: "",
+        hot: "",
+        veryHot: "",
+        default: "Snowday - have fun and stay warm!",
+    },
+    clear: {
+        freezing: "Clear night ❄️✨ — enjoy the stars and dress warmly",
+        cold: "Clear sky — perfect for star gazing 🛰️",
+        chilly: "Clear night 🌌 — a calm walk outside is nice",
+        mild: "Clear sky ✨ — great evening for a stroll",
+        warm: "Clear and warm 🌌 — enjoy an outdoor activity",
+        hot: "Clear and hot 🌌 — maybe watch the stars after sunset",
+        veryHot: "Clear and very hot 🌌🔥 — stay hydrated if outside",
+        default: "Clear night - enjoy the stars",
+    },
+    thunder: {
+        freezing: "Thunderstorm ⚡ — stay indoors and enjoy a book 📚",
+        cold: "Thunderstorm ⚡ — avoid going out, stay cozy",
+        chilly: "Thunderstorm ⚡ — better to stay inside",
+        mild: "Thunderstorm ⚡ — indoor activities recommended",
+        warm: "Thunderstorm ⚡ — relax inside with a cool beverage",
+        hot: "Hot thunderstorm ⚡🔥 — stay indoors, maybe watch a movie 🎬",
+        veryHot: "Severe thunderstorm ⚡🔥 — stay safe indoors 🏠",
+        default: "Thunder - stay inside",
+    },
+    fog: {
+        freezing: "Dense fog ❄️ — visibility is very low, stay safe indoors",
+        cold: "Cold fog 🌫️ — dress warmly and be careful if traveling",
+        chilly: "Chilly fog 🌫️ — a slow walk might be nice, watch your step",
+        mild: "Mild fog 🌫️ — a cozy morning walk could work, stay visible",
+        warm: "Warm fog 🌫️ — take a light walk but watch out for damp surfaces",
+        hot: "Hot fog 🌫️ — unusual, but stay hydrated if outside",
+        veryHot: "Very hot fog 🌫️ — avoid strenuous outdoor activity",
+        default: "Foggy day 🌫️ — move carefully and stay safe",
+    },
+}

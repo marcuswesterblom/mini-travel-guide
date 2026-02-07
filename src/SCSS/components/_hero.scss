@@ -9,17 +9,91 @@
 }
 
 #countryContainer {
-    padding: $p20;
-    border-radius: $border-radius-25;
-    margin: $m20;
     max-width: 700px;
-    @include flex($direction: column);
+    min-width: 320px;
     background-color: $primary-color;
+
+    margin: $m20;
+    padding: $p20;
+
+    border: $border;
+    border-radius: $border-radius-25;
+
+    filter: $drop-shadow;
+
+    @include flex($direction: column);
+
     #countryHeader {
-    @include flex($direction: column, $justify: space-between);
-    width: 100%;
+        width: 100%;
+        gap: $g20;
+        @include flex($justify: space-between);
     }
+
+    #countryInfoContainer {
+        width: 100%;
+    }
+
     #capitalContainer{
-    @include flex;
+    @include infoContainers;
+    #capitalIconContainer {
+        @include flex;
+    }
+    }
+    #populationContainer{
+    @include infoContainers;
+    #populationIconContainer {
+        @include flex;
+    }
+    }
+    #languageContainer{
+    @include infoContainers;
+    #languageIconContainer {
+        @include flex;
+    }
+    }
+    #currencyContainer{
+    @include infoContainers;
+    #currencyIconContainer {
+        @include flex;
+    }
+    }
+    #weatherContainer {
+        padding: $p20;
+        margin: $m20;
+        @include flex($direction: column);
+        p {
+            text-align: center;
+        }
+        #localTime{
+            font-style: italic;  
+        }
+        #weatherText {
+            color: $black;
+            font-weight: $weigth-600;
+        }
+        #tips{
+            margin: $m20;
+            padding: $p20;
+            border: $border;
+            background-color: rgb(221, 236, 183);
+            border-radius: $border-radius-5;
+        }
+        #weatherDegreeContainer{
+            padding: $p20;
+            @include flex;
+            #weatherIconContainer{
+                @include flex;
+            }
+            #temp {
+                font-size: $font-size-lg;
+                font-weight: $weigth-600;
+                color: $black;
+            }
+        }
     }
 }
+#imagesContainer{
+        img {
+            max-height: 250px;
+        }
+    }

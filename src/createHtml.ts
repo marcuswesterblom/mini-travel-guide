@@ -1,6 +1,6 @@
 import type { WeatherData } from "./weather/Weatherdata";
 import type { CountryData } from "./countries/CountryData";
-import { activityRecommendation } from "./helpers/helpers";
+import { activityRecommendation } from "./helpers/activityRecommendation";
 
 export function createHtml(
     container: HTMLElement, 
@@ -25,11 +25,12 @@ export function createHtml(
     const countryInfoContainer = document.createElement("div");
 
     const capitalContainer = document.createElement("div");
-    const locationIconContainer = document.createElement("div");
+    const capitalIconContainer = document.createElement("div");
     const capitalText = document.createElement("p");
     const capitalInfo = document.createElement("h3");
+    const capitalTextContainer = document.createElement("div");
 
-    const locationIcon = document.createElement("img");
+    const capitalIcon = document.createElement("img");
     const populationIcon = document.createElement("img");
     const languageIcon = document.createElement("img");
     const currencyIcon = document.createElement("img");
@@ -38,20 +39,26 @@ export function createHtml(
     const populationIconContainer = document.createElement("div");
     const populationText = document.createElement("p");
     const populationInfo = document.createElement("h3");
+    const populationTextContainer = document.createElement("div");
 
     const languageContainer = document.createElement("div");
     const languageIconContainer = document.createElement("div");
     const languageText = document.createElement("p");
     const languageInfo = document.createElement("h3");
+    const languageTextContainer = document.createElement("div");
 
     const currencyContainer = document.createElement("div");
     const currencyIconContainer = document.createElement("div");
     const currencyText = document.createElement("p");
     const currencyInfo = document.createElement("h3");
+    const currencyTextContainer = document.createElement("div");
+
+    const lineBreak = document.createElement("span");
 
     // WEATHER
     const localTime = document.createElement("p");
     const weatherContainer = document.createElement("div");
+    const weatherDegreeContainer = document.createElement("div");
     const weatherText = document.createElement("p");
     const weatherIcon = document.createElement("img");
     const weatherIconContainer = document.createElement("div");
@@ -72,7 +79,7 @@ export function createHtml(
 
     countryInfoContainer.id = "countryInfoContainer";
     capitalContainer.id = "capitalContainer";
-    locationIconContainer.id = "locationIconContainer";
+    capitalIconContainer.id = "capitalIconContainer";
     capitalText.id = "capitalText";
     capitalInfo.id = "capitalInfo";
 
@@ -92,8 +99,11 @@ export function createHtml(
     currencyText.id = "currencyText";
     currencyInfo.id = "currencyInfo";
 
+    lineBreak.id = "break";
+
     // WEATHER
     weatherContainer.id = "weatherContainer";
+    weatherDegreeContainer.id = "weatherDegreeContainer";
     localTime.id = "localTime";
     weatherText.id = "weatherText";
     weatherIconContainer.id = "weatherIconContainer";
@@ -103,7 +113,7 @@ export function createHtml(
 
     // ICONS
     heartIcon.id = "svg";
-    locationIcon.id = "svg";
+    capitalIcon.id = "svg";
     populationIcon.id = "svg";
     languageIcon.id = "svg";
     currencyIcon.id = "svg";
@@ -137,7 +147,7 @@ export function createHtml(
     // ICONS
 
     heartIcon.src = "/assets/icons/heart-svgrepo-com.svg";
-    locationIcon.src = "/assets/icons/location-pin-svgrepo-com.svg";
+    capitalIcon.src = "/assets/icons/location-pin-svgrepo-com.svg";
     populationIcon.src = "/assets/icons/users-svgrepo-com.svg";
     languageIcon.src = "/assets/icons/annotation-svgrepo-com.svg";
     currencyIcon.src = "/assets/icons/dollar-sign-svgrepo-com.svg";
@@ -149,7 +159,10 @@ export function createHtml(
     weatherIcon.alt = weather.current.condition.text;
     temp.textContent = `${weather.current.temp_c}°C`;
     currentWeatherText.textContent = weather.current.condition.text;
-    tips.textContent = activityRecommendation(weather.current.condition.text);
+    tips.textContent = activityRecommendation(
+        weather.current.condition.text,
+        weather.current.temp_c
+    );
 
     // GALLERY
     const galleryTitle = document.createElement("h3");
@@ -169,7 +182,7 @@ export function createHtml(
     // ICON CONTAINERS
     heartContainer.appendChild(heartIcon);
 
-    locationIconContainer.appendChild(locationIcon);
+    capitalIconContainer.appendChild(capitalIcon);
     populationIconContainer.appendChild(populationIcon);
     languageIconContainer.appendChild(languageIcon);
     currencyIconContainer.appendChild(currencyIcon);
@@ -177,28 +190,44 @@ export function createHtml(
     weatherIconContainer.appendChild(weatherIcon);
 
     // INFO BLOCKS
-    capitalContainer.append(
-        locationIconContainer,
+    capitalTextContainer.append(
         capitalText,
         capitalInfo
     );
 
-    populationContainer.append(
-        populationIconContainer,
+    capitalContainer.append(
+        capitalIconContainer,
+        capitalTextContainer
+    );
+
+      populationTextContainer.append(
         populationText,
         populationInfo
     );
 
-    languageContainer.append(
-        languageIconContainer,
+    populationContainer.append(
+        populationIconContainer,
+        populationTextContainer
+    );
+
+      languageTextContainer.append(
         languageText,
         languageInfo
     );
 
-    currencyContainer.append(
-        currencyIconContainer,
+    languageContainer.append(
+        languageIconContainer,
+        languageTextContainer
+    );
+
+      currencyTextContainer.append(
         currencyText,
         currencyInfo
+    );
+
+    currencyContainer.append(
+        currencyIconContainer,
+        currencyTextContainer
     );
 
     flagContainer.appendChild(flag);
@@ -213,14 +242,19 @@ export function createHtml(
         capitalContainer,
         populationContainer,
         languageContainer,
-        currencyContainer
+        currencyContainer,
+        lineBreak
     );
+
+    weatherDegreeContainer.append(
+        weatherIconContainer,
+        temp
+    )
 
     weatherContainer.append(
         localTime,
         weatherText,
-        weatherIconContainer,
-        temp,
+        weatherDegreeContainer,
         currentWeatherText,
         tips
     );

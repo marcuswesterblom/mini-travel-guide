@@ -1,21 +1,30 @@
 @use "variables" as *;
 * {
     font-family: $family-font;
+    text-align: left;
 }
 
 h1{
     font-size: $font-size-lg;
     color: $accent-color;
+    font-weight: $weigth-700;
+    text-transform: uppercase;
 }
 
 h2{
     font-size: $font-size-lg;
+    font-weight: $weigth-600;
 }
 
 h3{
     font-size: $font-size-md;
+    font-weight: $weigth-500;
+    margin: 0;
 }
-
+p {
+    color: $description-text;
+    margin: 0;
+}
 #svg{
     height: 40px;
     width: 40px;
@@ -51,6 +60,7 @@ button {
     width: 110px;
     border-radius: $border-radius-5;
     overflow: hidden;
+    filter: $drop-shadow;
     img{
         width: 100%;
     }
