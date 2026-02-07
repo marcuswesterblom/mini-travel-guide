@@ -1,4 +1,20 @@
-#container-heading {
-    display: flex;
-    align-items: center;
+@use "/src/SCSS/base/mixins" as * ;
+@use "/src/SCSS/base/variables" as * ;
+
+#header {
+        background-color: $primary-color;
+        padding: $p20;
+    #container-heading {
+        @include flex;
+        #container-icon {
+            @include flex;
+            img {
+            height: $font-size-lg;
+            }
+        }
+    }
+    #container-search {
+        margin: $m20;
+        @include flex;
+    }
 }

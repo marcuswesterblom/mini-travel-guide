@@ -1,29 +1,25 @@
+@use "/src/SCSS/base/mixins" as * ;
+@use "/src/SCSS/base/variables" as * ;
+
 #container-hero{
-    background-color: #EDEDED;
+    background-color: $secondary-color;
 }
 #result{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex($direction: column);
 }
 
 #countryContainer {
-    padding: 20px;
-    border-radius: 25px;
-    margin: 20px;
+    padding: $p20;
+    border-radius: $border-radius-25;
+    margin: $m20;
     max-width: 700px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: #F6F6F6;
+    @include flex($direction: column);
+    background-color: $primary-color;
     #countryHeader {
-    display: flex;
-    justify-content: space-between;
+    @include flex($direction: column, $justify: space-between);
     width: 100%;
     }
     #capitalContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex;
     }
 }
