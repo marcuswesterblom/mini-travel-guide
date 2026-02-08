@@ -169,6 +169,7 @@ export function createHtml(
     galleryTitle.textContent = `Photos from ${weather.location.name}`;
 
     const imagesContainer = document.createElement("div");
+    imagesContainer.appendChild(galleryTitle);
     imagesContainer.id = "imagesContainer";
     images.forEach(url => {
         const img = document.createElement("img");
@@ -267,7 +268,6 @@ export function createHtml(
 
     container.append(
         countryContainer,
-        galleryTitle,
         imagesContainer
     );
 

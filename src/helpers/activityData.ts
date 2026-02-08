@@ -30,7 +30,7 @@ export const recommendations: Record<WeatherType, Record<TempLevelOrDefault, str
         chilly: "Perfect day for a stroll in the city 🚶‍➡️",
         mild: "Today's a perfect day for sightseeing, make sure you bring your camera 📸",
         warm: "Great day for outdoor activities ⚽",
-        hot: "Maybe some light exercise or a wak",
+        hot: "Maybe some light exercise or a walk",
         veryHot: "Stay hydrated and relax",
         default: "Cloudy day - enjoy the shade",
     },
@@ -45,7 +45,7 @@ export const recommendations: Record<WeatherType, Record<TempLevelOrDefault, str
         default: "Snowday - have fun and stay warm!",
     },
     clear: {
-        freezing: "Clear night ❄️✨ — enjoy the stars and dress warmly",
+        freezing: "Clear night ❄️✨ — enjoy the stars but dress warmly",
         cold: "Clear sky — perfect for star gazing 🛰️",
         chilly: "Clear night 🌌 — a calm walk outside is nice",
         mild: "Clear sky ✨ — great evening for a stroll",

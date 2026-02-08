@@ -3,13 +3,20 @@
 
 #container-hero{
     background-color: $secondary-color;
+    @include flex;
 }
 #result{
     @include flex($direction: column);
+    max-width: 1200px;
+    @include respond(md) {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
 }
 
 #countryContainer {
-    max-width: 700px;
+    height: 100%;
+    max-width: 400px;
     min-width: 320px;
     background-color: $primary-color;
 
@@ -93,7 +100,45 @@
     }
 }
 #imagesContainer{
+    @include flex;
+    max-width: 420px;
+    flex-wrap: wrap;
+    padding: $p20 0;
+    gap: $g20;
+    @include respond(md) {
+        justify-content: stretch;
+    }
+    h3 {
+        @include flex;
+        background-color: $accent-color;
+        color: $primary-color;
+        text-transform: uppercase;
+        font-weight: $weigth-700;
+        text-align: center;
+        max-width: 400px;
+        height: 250px;
+        width: 90%;
+        border-radius: $border-radius-10;
+        filter: $drop-shadow;
+        @include respond(md) {
+                max-width: 170px;
+            }
+            @include respond(lg) {
+                max-width: 200px;
+            }
+    }
         img {
-            max-height: 250px;
+            width: 90%;
+            height: 250px;
+            max-width: 400px;
+            object-fit: cover;
+            border-radius: $border-radius-10;
+            filter: $drop-shadow;
+            @include respond(md) {
+                max-width: 170px;
+            }
+            @include respond(lg) {
+                max-width: 200px;
+            }
         }
     }

@@ -1,5 +1,5 @@
 @use "variables" as *;
-
+@use "sass:map";
 @mixin flex($direction: row, $justify: center, $align:center){
     display: flex;
     flex-direction: $direction;
@@ -13,5 +13,12 @@
     padding: $p20;
     img {
         height: 30px;
+    }
+}
+
+/* mixin media query */
+@mixin respond($bp) {
+    @media (min-width: map.get($grid-breakpoints, $bp)){
+        @content;
     }
 }

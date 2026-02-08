@@ -38,6 +38,7 @@ p {
 }
 
 input {
+    width: 210px;
     padding: $p10;
     border-radius: $border-radius-5;
     border: $border;
@@ -46,22 +47,12 @@ input {
     }
 }
 
-button {
-    background-color: $accent-color;
-    height: 38px;
-    padding: 5px;
-    #searchIcon {
-        height: 100%;
-    }
-}
-
 #flagContainer{
     height: 70px;
     width: 110px;
-    border-radius: $border-radius-5;
-    overflow: hidden;
-    filter: $drop-shadow;
     img{
         width: 100%;
+        border-radius: $border-radius-5;
+        filter: $drop-shadow;
     }
 }

@@ -3,7 +3,6 @@
 
 #header {
         background-color: $primary-color;
-        padding: $p20;
     #container-heading {
         @include flex;
         #container-icon {
@@ -14,7 +13,18 @@
         }
     }
     #container-search {
-        margin: $m20;
+        padding: $p20;
         @include flex;
+        button {
+            background-color: $accent-color;
+            height: 36px;
+            padding: 5px;
+            position: absolute;
+            transform: translateX(97px);
+            border-radius: 0px 4px 4px 0px;
+            #searchIcon {
+                height: 100%;
+            }
+        }
     }
 }
