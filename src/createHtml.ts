@@ -1,6 +1,7 @@
 import type { WeatherData } from "./weather/Weatherdata";
 import type { CountryData } from "./countries/CountryData";
 import { activityRecommendation } from "./helpers/activityRecommendation";
+import { handleFavouriteClick } from "./favourites/favouriteHandler";
 
 export function createHtml(
     container: HTMLElement, 
@@ -20,6 +21,7 @@ export function createHtml(
     const flag = document.createElement("img");
     const flagContainer = document.createElement("div");
     const heartIcon = document.createElement("img");
+    const heartIconHover = document.createElement("img");
     const heartContainer = document.createElement("div");
 
     const countryInfoContainer = document.createElement("div");
@@ -112,11 +114,12 @@ export function createHtml(
     currentWeatherText.id = "currentWeatherText";
 
     // ICONS
-    heartIcon.id = "svg";
-    capitalIcon.id = "svg";
-    populationIcon.id = "svg";
-    languageIcon.id = "svg";
-    currencyIcon.id = "svg";
+    heartIcon.className = "svg";
+    heartIconHover.className = "svg";
+    capitalIcon.className = "svg";
+    populationIcon.className = "svg";
+    languageIcon.className = "svg";
+    currencyIcon.className = "svg";
     
     // GALLERY
 
@@ -147,10 +150,15 @@ export function createHtml(
     // ICONS
 
     heartIcon.src = "/assets/icons/heart-svgrepo-com.svg";
+    heartIconHover.src = "/assets/icons/heart-svgrepo-com_hover.svg";
     capitalIcon.src = "/assets/icons/location-pin-svgrepo-com.svg";
     populationIcon.src = "/assets/icons/users-svgrepo-com.svg";
     languageIcon.src = "/assets/icons/annotation-svgrepo-com.svg";
     currencyIcon.src = "/assets/icons/dollar-sign-svgrepo-com.svg";
+
+    heartContainer.dataset.country = country.name.common;
+
+    handleFavouriteClick(heartContainer, heartIcon, country);
 
     // WEATHER
     localTime.textContent = weather.location.localtime;
@@ -181,7 +189,10 @@ export function createHtml(
 //--- APPEND ---
 
     // ICON CONTAINERS
-    heartContainer.appendChild(heartIcon);
+    heartContainer.append(
+        heartIcon, 
+        heartIconHover
+    );
 
     capitalIconContainer.appendChild(capitalIcon);
     populationIconContainer.appendChild(populationIcon);

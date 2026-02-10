@@ -3,13 +3,17 @@ import { fetchCountry } from "./countries/countryServices";
 import { fetchImages } from "./gallery/unsplashServices";
 import { createHtml } from "./createHtml";
 
+const form = document.getElementById("container-search") as HTMLFormElement;
 const searchInput = document.getElementById("searchInput") as HTMLInputElement;
-const searchBtn = document.getElementById("searchBtn") as HTMLButtonElement;
 const resultDiv = document.getElementById("result") as HTMLDivElement;
 
-searchBtn.addEventListener("click", () => {
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
     const city = searchInput.value.trim();
-    if (city) loadTravelGuide(city);
+    if(city) {
+        loadTravelGuide(city);
+    }
+    searchInput.value = "";
 });
 
 async function loadTravelGuide(city: string){

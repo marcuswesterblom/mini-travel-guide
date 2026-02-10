@@ -10,7 +10,12 @@
   </head>
   <body>
     <div id="app">
-
+      <div id="favouritesPanel">
+        <div id="favouritesContent"></div>
+      </div>
+      <div id="favouritesToggle">
+        <img src="/assets/icons/heart-svgrepo-com_fill.svg" alt="heart" class="svg">
+      </div>
     <section id="header">
 
       <div id="container-heading">
@@ -20,10 +25,10 @@
         <h1>My mini travel guide</h1>
       </div>
       <span id="break"></span>
-      <div id="container-search">
+      <form id="container-search">
         <input type="text" id="searchInput" placeholder="Where do you want to go?...">
-        <button id="searchBtn"><img src="/assets/icons/search-alt-svgrepo-com.svg" alt="Search icon" id="searchIcon"></button>
-      </div>
+        <button type="submit" id="searchBtn"><img src="/assets/icons/search-alt-svgrepo-com.svg" alt="Search icon" id="searchIcon"></button>
+      </form>
     </section>
 
     <section id="container-hero">
