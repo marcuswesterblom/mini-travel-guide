@@ -16,7 +16,7 @@ form.addEventListener("submit", (e) => {
     searchInput.value = "";
 });
 
-async function loadTravelGuide(city: string){
+export async function loadTravelGuide(city: string){
     resultDiv.innerHTML = "Loading...";
     try {
         const weather = await fetchWeather(city);

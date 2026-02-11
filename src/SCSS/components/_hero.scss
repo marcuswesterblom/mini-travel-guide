@@ -32,8 +32,16 @@
 
     #countryHeader {
         width: 100%;
-        gap: $g20;
         @include flex($justify: space-between);
+        #flagContainer{
+            img{
+                height: 80px;
+                width: 110px;
+                object-fit: cover;
+                border-radius: $border-radius-5;
+                filter: $drop-shadow;
+            }
+        }
 
         #heartContainer{
             position: relative;
@@ -44,6 +52,7 @@
                 position: absolute;
                 top: 0;
                 left: 0;
+                transition: transform 0.2s ease;
             }
             img:nth-child(2) {
                 opacity: 0;
@@ -55,6 +64,15 @@
 
             &:not(.active):hover img:nth-child(2) {
                 opacity: 1;
+                transform: scale(1.2);
+            }
+
+            &.active:hover img:nth-child(1) {
+                opacity: 0;
+            }
+            &.active:hover img:nth-child(1) {
+                opacity: 1;
+                transform: scale(1.2);
             }
         }
     }

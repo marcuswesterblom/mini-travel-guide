@@ -5,24 +5,25 @@ export const handleFavouriteClick = (heartContainer: HTMLElement, heartIcon: HTM
         
     const countryName = country.name.common;
     
-        if (isFavourite(countryName)) {
-            heartIcon.src = "/assets/icons/heart-svgrepo-com_fill.svg";
-        }
+        const syncHeart = () => {
+            const favourite = isFavourite(countryName);
+            heartContainer.classList.toggle("active", favourite);
+            heartIcon.src = favourite
+                ? "/assets/icons/heart-svgrepo-com_fill.svg"
+                : "/assets/icons/heart-svgrepo-com.svg";
+        };
+
+        syncHeart();
+
         heartContainer.addEventListener("click", () => {
-    
+
             toggleFavourites(countryName);
-    
-            if (isFavourite(countryName)) {
-                heartContainer.classList.add("active");
-                heartIcon.src = "/assets/icons/heart-svgrepo-com_fill.svg";
-            } else {
-                heartContainer.classList.remove("active");
-                heartIcon.src = "/assets/icons/heart-svgrepo-com.svg";
-            }
+            syncHeart();
             const panel = document.getElementById("favouritesPanel");
             if (panel?.classList.contains("open")) {
                 renderFavouritesPanel();
             }
+
         });
     
 }

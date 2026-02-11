@@ -4,7 +4,12 @@
 #header {
         background-color: $primary-color;
     #container-heading {
-        @include flex;
+        @include flex($justify: stretch);
+        padding: $p10;
+        gap: $g10;
+        @include respond(md) {
+            justify-content: center;
+        }
         #container-icon {
             @include flex;
             img {

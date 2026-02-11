@@ -158,7 +158,7 @@ export function createHtml(
 
     heartContainer.dataset.country = country.name.common;
 
-    handleFavouriteClick(heartContainer, heartIcon, country);
+
 
     // WEATHER
     localTime.textContent = weather.location.localtime;
@@ -193,6 +193,7 @@ export function createHtml(
         heartIcon, 
         heartIconHover
     );
+    handleFavouriteClick(heartContainer, heartIcon, country);
 
     capitalIconContainer.appendChild(capitalIcon);
     populationIconContainer.appendChild(populationIcon);

@@ -1,3 +1,8 @@
+@use "/src/SCSS/base/variables" as * ;
+
+:root {
+  background-color: $secondary-color;
+}
 body {
   display: block;  
   min-width: 400px;
