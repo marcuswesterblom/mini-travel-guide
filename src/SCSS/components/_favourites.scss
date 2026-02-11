@@ -89,6 +89,7 @@
     border-left: 2px solid $favourite-primary-color;
     border-top: 2px solid $favourite-primary-color;
     border-bottom: 2px solid $favourite-primary-color;
+    filter: $drop-shadow;
     img {
         cursor: pointer;
         transition: transform 0.2s ease;

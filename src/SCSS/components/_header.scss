@@ -3,9 +3,16 @@
 
 #header {
         background-color: $primary-color;
+        &.opening {
+            border-radius: $border-radius-25;
+            border: $border;
+            filter: $drop-shadow;
+            padding: 40px;
+            margin: $m20;
+        }
     #container-heading {
         @include flex($justify: stretch);
-        padding: $p10;
+        padding: $p20;
         gap: $g10;
         @include respond(md) {
             justify-content: center;

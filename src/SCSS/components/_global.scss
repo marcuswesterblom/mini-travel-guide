@@ -6,6 +6,9 @@
 body {
   display: block;  
   min-width: 400px;
+  &.opening{
+    display: flex;
+  }
 }
 #app {
     padding: 0;
