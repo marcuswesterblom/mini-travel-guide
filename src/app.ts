@@ -8,6 +8,7 @@ const searchInput = document.getElementById("searchInput") as HTMLInputElement;
 const resultDiv = document.getElementById("result") as HTMLDivElement;
 const header = document.getElementById("header") as HTMLDivElement;
 
+// Opening UI, Header and input looks like a module
 if (resultDiv.children.length === 0) {
         document.body.classList.add("opening");
         header.classList.add("opening");
@@ -18,17 +19,18 @@ if (resultDiv.children.length === 0) {
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const city = searchInput.value.trim();
+    const country = searchInput.value.trim();
 
-    if(city) {
-        loadTravelGuide(city);
+    if(country) {
+        loadTravelGuide(country);
     }
     searchInput.value = "";
 });
 
-export async function loadTravelGuide(city: string){
+export const loadTravelGuide = async (city: string) => {
     resultDiv.innerHTML = "Loading...";
 
+    // Opening UI changes from module to website
     document.body. classList.remove("opening");
     header.classList.remove("opening");
     

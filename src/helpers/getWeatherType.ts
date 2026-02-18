@@ -1,7 +1,7 @@
 
 export type WeatherType = "sun" | "rain" | "cloud" | "snow" | "clear" | "thunder" | "fog";
 
-export function getWeatherType(w:string): WeatherType {
+export const getWeatherType = (w:string): WeatherType => {
     if (w.includes("thunder")) return "thunder";
     if (w.includes("fog")) return "fog";
     if (w.includes("snow")) return "snow";

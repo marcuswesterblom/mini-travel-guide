@@ -1,8 +1,15 @@
 export interface CountryData {
-    name: { common: string };
+    name: { 
+        common: string 
+    };
     capital: string[];
     population: number;
-    currencies: Record<string, { name: string; symbol: string }>;
+    currencies: Record<string, { 
+        name: string; 
+        symbol: string
+    }>;
     languages: Record<string, string>;
-    flags: { png: string };
+    flags: { 
+        png: string 
+    };
 }

@@ -1,6 +1,6 @@
 import type { TempLevel } from "./activityData";
 
-export function getTempLevel(temp: number): TempLevel {
+export const getTempLevel = (temp: number): TempLevel => {
     if ( temp<= 0) return "freezing";
     if ( temp<= 5) return "cold";
     if ( temp<= 10) return "chilly";

@@ -3,12 +3,7 @@ import type { CountryData } from "./countries/CountryData";
 import { activityRecommendation } from "./helpers/activityRecommendation";
 import { handleFavouriteClick } from "./favourites/favouriteHandler";
 
-export function createHtml(
-    container: HTMLElement, 
-    weather: WeatherData, 
-    country: CountryData, 
-    images: string[]
-) {
+export const createHtml = (container: HTMLElement, weather: WeatherData, country: CountryData, images: string[]) => {
     container.innerHTML = "";
 
     // --- Create HTML elements ---
@@ -127,14 +122,13 @@ export function createHtml(
 
     // COUNTRIES
     flag.src = country.flags.png;
-    flag.alt = `Flag ${country.name.common}`;
+    flag.alt = `Flag: ${country.name.common}`;
     flag.dataset.country = country.name.common;
 
     countryTitle.textContent = country.name.common;
 
     capitalText.textContent = "Capital";
     capitalInfo.textContent = country.capital[0];
-
 
     populationText.textContent = "Population";
     populationInfo.textContent = country.population.toLocaleString();
