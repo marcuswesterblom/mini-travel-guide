@@ -30,7 +30,7 @@ form.addEventListener("submit", (e) => {
 export const loadTravelGuide = async (city: string) => {
     resultDiv.innerHTML = "Loading...";
 
-    // Opening UI changes from module to website
+    // Opening UI changes from module to banner
     document.body. classList.remove("opening");
     header.classList.remove("opening");
     
