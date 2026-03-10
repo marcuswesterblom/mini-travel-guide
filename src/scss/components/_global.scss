@@ -5,10 +5,7 @@
 }
 body {
   display: block;  
-  min-width: 400px;
-  &.opening{
-    display: flex;
-  }
+  min-width: 320px;
 }
 #app {
     padding: 0;
